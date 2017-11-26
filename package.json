@@ -1,0 +1,24 @@
+{
+  "name": "music",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "./node_modules/.bin/electron .",
+    "dist-darwin": "./node_modules/.bin/electron-packager . MusicLib --overwrite --platform=darwin",
+    "clean": "rm -r node_modules && rm -r MusicLib-darwin-x64"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "~3.3.7",
+    "lowdb": "~0.14.0",
+    "moment": "~2.17.1",
+    "vue": "~2.1.8",
+    "vue-resource": "~1.0.3"
+  },
+  "devDependencies": {
+    "electron": "^1.7.5",
+    "electron-packager": "^8.7.2"
+  }
+}
