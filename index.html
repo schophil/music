@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Music Library</title>
+  <script src="./node_modules/vue/dist/vue.min.js" charset="utf-8"></script>
+  <script src="./node_modules/vue-resource/dist/vue-resource.min.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="./master.css">
+</head>
+<body>
+  <div id="app">
+    <ul class="nav nav-tabs">
+      <li role="presentation" v-bind:class="isActiveTab('search') ? 'active' : ''" v-on:click="showTab('search')">
+        <a href="#">Search</a>
+      </li>
+      <li role="presentation" v-bind:class="isActiveTab('add') ? 'active' : ''" v-on:click="showTab('add')">
+        <a href="#">Add</a>
+      </li>
+      <!-- <li role="presentation" v-bind:class="isActiveTab('config') ? 'active' : ''" v-on:click="showTab('config')">
+        <a href="#">Config</a>
+      </li> -->
+    </ul>
+    <div class="tab-content" id="search" v-if="isActiveTab('search')">
+      <h1>Search your library</h1>
+      <music-search v-bind:service="service"></music-search>
+    </div>
+    <div class="tab-content" id="add" v-if="isActiveTab('add')">
+      <h1>Add to your library</h1>
+      <music-lookup discogs-token="PQXWNViOYwgAyPhCDvxjJmVAcuUaRPpksNEQqxXH" v-bind:genre-map="genres" v-on:pick="prepareRegister"></music-lookup>
+      <hr/>
+      <music-register v-bind:record="newRecord" v-bind:genres="genres" v-on:register="registerRecord"></music-register>
+    </div>
+    <!-- <div class="tab-content" id="config" v-if="isActiveTab('config')">
+      <h1>Config</h1>
+    </div> -->
+  </div>
+  <!-- <script src="./app/app.js" charset="utf-8"></script> -->
+  <script type="text/javascript">
+    require('./app/app');
+  </script>
+</body>
+</html>
