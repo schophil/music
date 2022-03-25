@@ -18,7 +18,7 @@
     "vue-resource": "~1.5.1"
   },
   "devDependencies": {
-    "electron": "~1.8.8",
+    "electron": "~13.6.6",
     "electron-packager": "~8.7.2"
   }
 }
